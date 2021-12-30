@@ -1,0 +1,46 @@
+.mainWindow{
+    -fx-background-image: url("back.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 900 506;
+    -fx-background-position: center center;
+}
+
+.labelTitle{
+    -fx-background-color: #37C8F2;
+    -fx-text-fill: #f7f7f7;
+    -fx-font-size: 26px;
+}
+
+.labelTotal{
+    -fx-text-fill: #f7f7f7;
+    -fx-font-size: 26px;
+}
+
+.labelForm{
+    -fx-text-fill: #007af4;
+}
+
+.button{
+    -fx-background-color: #454545;
+    -fx-border-color: #ff8040;
+    -fx-text-fill: #f7f7f7;
+    -fx-background-radius: 3.0, 2.0, 2.0, 2.0;
+    -fx-font-size: 14px;
+    -fx-pref-height: 40px;
+    -fx-pref-width: 190px;
+}
+
+.boxTotal{
+    -fx-background-color: #5b5b5b;
+    -fx-border-color: #223344;
+}
+
+.table-row-cell{
+    -fx-cell-size: 40px;
+    -fx-font-size: 14px;
+    -fx-alignment: center-right;
+    -fx-border-width: 0.009em;
+    -fx-border-color: #0079f2;
+   /* -fx-background-insets: 0;
+    -fx-padding: 0em;*/
+}
