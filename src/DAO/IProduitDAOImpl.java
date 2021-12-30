@@ -94,13 +94,14 @@ public class IProduitDAOImpl implements IProduitDAO {
         PreparedStatement pst = null;
         ResultSet rs;
         try {
-            String sql = "update produits set designation = ? and Quantite = ? and prix = ? and date_saisie = ? where id = ?";
+            String sql = "update produits set designation = ?, Quantite = ?, prix = ?, date_saisie = ? where id = ?";
             pst = cnx.getConnexion().prepareStatement(sql);
             pst.setString(1, p.getDesignation());
             pst.setLong(2, p.getQuantite());
             pst.setDouble(3, p.getPrix());
             pst.setDate(4, Date.valueOf(p.getDate_saisie()));
             pst.setLong(5, p.getId());
+            System.out.println("in update method====> "+pst.toString());
             pst.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

@@ -9,6 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.PopupWindow;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class formProductWindow {
 
@@ -76,7 +77,8 @@ public class formProductWindow {
         });
         addProduit.setOnAction(event -> {
             handler.addProduit();
-            window.close();
+            /*window.close();*/
+            window.fireEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSE_REQUEST));
 
         });
         window.setOnCloseRequest(event -> {
@@ -87,15 +89,17 @@ public class formProductWindow {
     private void addEvents(int id){
         cancelProduit.setOnAction(event -> {
             window.close();
+            new ProduitListWindow();
         });
         addProduit.setOnAction(event -> {
             handler.updateProduit(id);
             window.close();
+            new ProduitListWindow();
 
         });
-        window.setOnCloseRequest(event -> {
+        /*window.setOnCloseRequest(event -> {
             event.consume();
-        });
+        });*/
     }
 
     public formProductWindow() {
@@ -113,8 +117,11 @@ public class formProductWindow {
         produitPrixTextFeild.setText(p.getPrix()+"");
         produitDatePicker.setValue(p.getDate_saisie());
         addProduit.setText("Modifier");
+        titleLabel.setText("Modifier un produit");
+        window.setTitle("Modification du produit");
         addStyleToNodes();
         addNodesToWindow();
+        System.out.println("in construct id==> "+p.toString());
         addEvents(p.getId());
         window.show();
     }

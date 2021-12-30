@@ -44,7 +44,6 @@ public class ProduitListWindow {
     ObservableList<Produit> produitObservaleList = FXCollections.observableArrayList();
 
 
-
     private void addComumnsToTableView(){
         produitsTableView.getColumns().addAll(idColumn,designationColumn,prixColumn,qteColumn,totalColumn,dateColumn);
         produitsTableView.setItems(produitObservaleList);
@@ -131,8 +130,10 @@ public void setTableRow(){
                         @Override
                         public void handle(ActionEvent event) {
                             System.out.println("===>"+row.getItem());
-                            Produit p =new Produit(0,row.getItem().getDesignation(),row.getItem().getPrix(),row.getItem().getQuantite(),row.getItem().getDate_saisie());
+                            Produit p =new Produit(row.getItem().getId(),row.getItem().getDesignation(),row.getItem().getPrix(),row.getItem().getQuantite(),row.getItem().getDate_saisie());
+
                             new formProductWindow(p);
+                            window.close();
 
                         }
                     });

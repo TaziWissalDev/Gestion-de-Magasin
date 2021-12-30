@@ -6,11 +6,14 @@ import entities.Produit;
 import java.util.List;
 
 public class ProduitListHandler {
-    ProduitListWindow listWindow = null;
+    static ProduitListWindow listWindow = null;
     IProduitDAOImpl pdao = new IProduitDAOImpl();
+
     public ProduitListHandler(ProduitListWindow listWindow){
         this.listWindow = listWindow;
     }
+
+    ProduitListHandler(){}
 
     public void getProduits(){
         List<Produit> liste = pdao.getAll();
@@ -39,8 +42,5 @@ public class ProduitListHandler {
     }
 
 
-    public void updateProduit(Produit p ){
-        pdao.update(p);
-        initTableView();
-    }
+
 }
